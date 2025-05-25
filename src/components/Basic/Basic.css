@@ -1,0 +1,146 @@
+.calculator {
+  width: 350px;
+  margin: 10px 0px;
+  background: #23272f;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.display {
+  background: #181b20;
+  border-radius: 16px;
+  margin-bottom: 18px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 10px;
+  box-sizing: border-box;
+  transition: background 0.3s;
+}
+
+.display-history {
+  color: #8a8f99;
+  font-size: 1rem;
+  min-height: 24px;
+  max-height: 70px;
+  margin-bottom: 4px;
+  overflow-y: auto;
+  white-space: normal;
+  transition: color 0.3s;
+  text-align: left;
+  padding-right: 4px;
+  scrollbar-width: thin;
+}
+
+.display-history::-webkit-scrollbar {
+  width: 6px;
+  background: #23272f;
+}
+.display-history::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 4px;
+}
+
+.display-value {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: right;
+  text-overflow: hide;
+  overflow: hidden;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+
+.display-history {
+  color: #8a8f99;
+  font-size: 1rem;
+  min-height: 24px;
+  max-height: 70px;
+  margin-bottom: 4px;
+  overflow-y: auto;
+  white-space: normal;
+  transition: color 0.3s;
+  text-align: left;
+  padding-right: 4px;
+  scrollbar-width: thin;
+}
+
+.display-history::-webkit-scrollbar {
+  width: 6px;
+  background: #23272f;
+}
+.display-history::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 4px;
+}
+
+.keys {
+  display: grid;
+  grid-template-columns: repeat(5, 65px);
+  grid-template-rows: repeat(5, 68px);
+  gap: 7px;
+}
+
+.key-btn {
+  /* width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0; */
+  background: #34394a;
+  color: #fff;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  outline: none;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.key-btn:active {
+  background: #4f5672;
+  transform: scale(0.97);
+}
+
+.key-btn.special {
+  background: #ffb300;
+  color: #23272f;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+}
+
+.key-btn.special:active {
+  background: #ffcb60;
+}
+
+.key-btn.double-width {
+  grid-column: span 2;
+  font-size: 1.5rem;
+}
+
+@media (max-width: 350px) {
+  .calculator {
+    width: 98vw;
+    min-width: 0;
+    padding: 6px;
+  }
+  .display {
+    padding: 8px;
+  }
+  .keys {
+    gap: 5px;
+  }
+}
