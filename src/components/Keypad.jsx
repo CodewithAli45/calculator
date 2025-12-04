@@ -1,40 +1,42 @@
 import React from 'react';
 
-const Button = ({ children, className, onClick }) => (
-  <button onClick={onClick} className={`py-3 rounded-xl shadow-inner font-medium ${className}`}>{children}</button>
-);
-
-export default function Keypad({ onPress, onEquals, onClear, onBackspace, onUseANS }) {
+export default function Keypad({ onPress, onClear, onBackspace, onEquals }) {
   const buttons = [
-    ['(', ')', 'ANS', 'C'],
-    ['7','8','9','/'],
-    ['4','5','6','*'],
-    ['1','2','3','-'],
-    ['0','.','=','+']
+    ['√', '(', ')', 'DEL', 'AC'],
+    ['7', '8', '9', '%', '/'],
+    ['4', '5', '6', '-', '*'],
+    ['1', '2', '3', '+'],
+    ['0', '.', 'ANS', '='],
   ];
 
-  return (
-    <div className="grid grid-cols-4 gap-3 mt-4">
-      {buttons.flat().map((b, idx) => {
-        const isEq = b === '='; const isC = b === 'C'; const isANS = b === 'ANS';
-        return (
-          <Button
-            key={idx}
-            onClick={() => {
-              if (isEq) return onEquals();
-              if (isC) return onClear();
-              if (isANS) return onPress('ANS');
-              if (b === '.') return onPress('.');
-              if (['+','-','*','/','(',')'].includes(b)) return onPress(b);
-              onPress(b);
-            }}
-            className={isEq ? 'col-span-1 bg-indigo-500 text-white' : isC ? 'bg-red-100' : isANS ? 'bg-yellow-100' : 'bg-gray-50'}
-          >{b}</Button>
-        );
-      })}
+  const getButtonClass = (val) => {
+    if (['DEL', 'AC'].includes(val)) return 'bg-red-500 text-white';
+    if (['+', '-', '*', '/', '%', '='].includes(val)) return 'bg-yellow-500 text-white';
+    if (val === 'ANS') return 'bg-blue-500 text-white';
+    if (val === '√' || val === '(' || val === ')') return 'bg-gray-400 text-white';
+    return 'bg-gray-300 text-black';
+  };
 
-      <button onClick={onBackspace} className="col-span-2 py-3 rounded-xl bg-gray-200">⌫</button>
-      <button onClick={() => onUseANS()} className="col-span-2 py-3 rounded-xl bg-green-100">Use ANS</button>
+  const handleButtonClick = (val) => {
+    if (val === 'AC') return onClear();
+    if (val === 'DEL') return onBackspace();
+    if (val === '=') return onEquals();
+    onPress(val);
+  };
+
+  return (
+    <div className="grid grid-cols-5 gap-2 mt-4">
+      {buttons.flat().map((val, index) => (
+        <button
+          key={index}
+          className={`${getButtonClass(val)} rounded-lg p-2 shadow-md ${
+            val === '=' || val === '+' ? 'col-span-2' : ''
+          }`}
+          onClick={() => handleButtonClick(val)}
+        >
+          {val}
+        </button>
+      ))}
     </div>
   );
 }
