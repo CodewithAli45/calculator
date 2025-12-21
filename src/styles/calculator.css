@@ -1,0 +1,8 @@
+.calc-wrapper {
+  width: 300px;
+  margin: 40px auto;
+  padding: 16px;
+  background: #e6eef6;
+  border-radius: 16px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.35);
+}
