@@ -1,5 +1,5 @@
 .display {
-  background: #ffffff;
+  background: #ccc5c5;
   border-radius: 10px;
   padding: 10px 12px;
   margin-bottom: 14px;
@@ -14,7 +14,7 @@
 }
 
 .expr {
-  font-size: 28px;
+  font-size: 32px;
   font-weight: 500;
   color: #000;
   text-align: right;

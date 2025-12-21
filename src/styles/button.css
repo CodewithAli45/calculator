@@ -1,11 +1,12 @@
 .btn {
   padding: 14px;
-  font-size: 16px;
+  font-size: 18px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
   background: #cfd9e5;
   color: #000;
+  font-weight: bold;
   transition: background 0.2s, transform 0.05s;
 }
 

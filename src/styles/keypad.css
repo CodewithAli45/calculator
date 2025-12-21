@@ -1,5 +1,23 @@
+
 .keypad {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: 8px;
+  grid-auto-rows: 52px;
+  gap: 10px;
+}
+
+/* + button takes two rows */
+.btn-plus {
+  grid-column: span 2;
+  background: #f5b400;
+  color: white;
+  font-size: 24px;
+}
+
+/* = button takes two rows */
+.btn-equal {
+  grid-column: span 2;
+  background: #3fa047;
+  color: white;
+  font-size: 24px;
 }

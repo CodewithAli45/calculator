@@ -14,8 +14,17 @@ export default function KeypadBasic({ onPress }) {
   return (
     <div className="keypad">
       {keys.map((k) => (
-        <Button key={k} label={k} onClick={onPress} />
+        <Button
+          key={k}
+          label={k}
+          onClick={onPress}
+          className={
+            k === '+' ? 'btn-plus' :
+            k === '=' ? 'btn-equal' : ''
+          }
+        />
       ))}
     </div>
   );
 }
+
