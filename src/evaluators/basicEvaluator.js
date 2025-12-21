@@ -1,7 +1,15 @@
+// src/evaluators/basicEvaluator.js
 import * as math from 'mathjs';
 
+function formatIndianNumber(value) {
+  return new Intl.NumberFormat('en-IN', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(value);
+}
+
 export function evaluateBasic(expr) {
-  if (!expr) return '0';
+  if (!expr) return '0.00';
 
   try {
     const sanitized = expr
@@ -10,8 +18,14 @@ export function evaluateBasic(expr) {
       .replace(/π/g, 'pi')
       .replace(/√/g, 'sqrt');
 
-    const result = math.evaluate(sanitized);
-    return result.toString();
+    const rawResult = math.evaluate(sanitized);
+
+    if (typeof rawResult !== 'number' || !isFinite(rawResult)) {
+      return 'Error';
+    }
+
+    // Round + Indian format
+    return formatIndianNumber(rawResult);
   } catch {
     return 'Error';
   }

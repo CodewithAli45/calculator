@@ -1,0 +1,23 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  background: #1e3c72;
+  color: white;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.myself {
+  font-family: "Pacifico", cursive;
+  font-weight: bold;
+  font-size: 18px;
+  color: rgb(233, 233, 172);
+  font-style: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+

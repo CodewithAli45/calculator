@@ -6,7 +6,7 @@ import '../styles/calculator.css';
 
 export default function BasicCalculator() {
   const [expr, setExpr] = useState('');
-  const [ans, setAns] = useState('0');
+  const [ans, setAns] = useState(0);
 
   const handleKey = (key) => {
     if (key === 'AC') {
@@ -21,15 +21,21 @@ export default function BasicCalculator() {
 
     if (key === '=') {
       const result = evaluateBasic(expr);
-      setAns(result);
-      setExpr(result);
+      if (result !== 'Error') {
+        // Remove commas before storing
+        const numericValue = Number(result.replace(/,/g, ''));
+        setAns(numericValue);
+        setExpr(result);
+      }
       return;
     }
 
     if (key === 'ANS') {
-      setExpr(prev => prev + ans);
+      setExpr(prev => prev + ans.toString());
       return;
+      
     }
+    console.log(ans);
 
     setExpr(prev => prev + key);
   };
