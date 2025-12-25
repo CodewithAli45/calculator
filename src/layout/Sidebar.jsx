@@ -18,7 +18,9 @@ export default function Sidebar({ open, onClose }) {
         <h3>Calculators</h3>
 
         <button onClick={() => openCalc('/basic')}>Basic Calculator</button>
-        <button disabled>Scientific Calculator</button>
+        <button onClick={() => openCalc('/scientific')}>Scientific Calculator</button>
+        <button onClick={() => openCalc('/days')}>Days Calculator</button>
+        <button onClick={() => openCalc('/calendar')}>Calendar</button>
         <button disabled>Programmer Calculator</button>
       </aside>
     </>

@@ -11,6 +11,8 @@ export default function Home() {
   const location = useLocation();
 
   const getTitle = () => {
+    if (location.pathname.includes('calendar')) return 'Calendar';
+    if (location.pathname.includes('days')) return 'Days Calculator';
     if (location.pathname.includes('scientific')) return 'Scientific Calculator';
     return 'Basic Calculator';
   };
