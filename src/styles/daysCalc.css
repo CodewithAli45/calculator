@@ -1,3 +1,134 @@
-body{
-    background-color: #f0f0f0;
+.dayscalc-wrapper {
+  max-width: 320px;
+  margin: auto;
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.title {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inputs input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.calc-btn {
+  margin-top: 14px;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  background: #1e3c72;
+  color: white;
+  cursor: pointer;
+}
+
+.calc-btn:active {
+  transform: scale(0.97);
+}
+
+.result {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.days-display {
+  height: 80px;
+}
+
+.days-inputs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+
+  input {
+    flex: 1;
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 8px;
+    border: none;
+    background: #e6eef6;
+    text-align: center;
+  }
+}
+
+.calc-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: none;
+  background: #f5b400;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: transform 0.1s, box-shadow 0.1s;
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+/* RESULT CARD */
+.days-result {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.15);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+
+  &.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    font-size: 16px;
+
+    span {
+      color: #666;
+    }
+
+    strong {
+      color: #000;
+      font-weight: 600;
+    }
+  }
+}
+
+.days-error {
+  text-align: center;
+  color: red;
+  font-weight: bold;
+  animation: shake 0.3s;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
 }
